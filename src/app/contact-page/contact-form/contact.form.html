@@ -1,0 +1,28 @@
+<div class="formWrapper">
+  <p> </p>
+  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+    <p>
+      <label for="firstname"></label>
+      <input [(ngModel)]="model.firstname" #firstname="ngModel" type="text" id="firstname" name="firstname" placeholder="First name">
+    </p>
+    <p>
+      <label for="lastname"></label>
+      <input [(ngModel)]="model.lastname" #lastname="ngModel"  type="text" id="lastname" name="lastname" placeholder="Last name">
+    </p>
+    <p>
+      <label for="email"></label>
+      <input [(ngModel)]="model.email" #email="ngModel" required type="email" id="email" name="email" placeholder="Your e-mail">
+      <span [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        email is required
+      </span>
+    </p>
+    <pre> {{ email.errors | json }} </pre>
+    <p>
+      <textarea placeholder="Your message"></textarea>
+    </p>
+  </form>
+  <p> <button type="submit" (click)="onSubmit(contactForm)">Submit</button> </p>
+  <pre>
+    {{model | json }}
+  </pre>
+</div>

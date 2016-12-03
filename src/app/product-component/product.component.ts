@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from './product';
 
 @Component({
   selector: 'product',
@@ -6,13 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['product.component.sass']
 })
 export class ProductComponent {
+
   title:string;
 
-  product = {
-    image:'assets/img/sylviebag.jpg',
-    title:'Gucci Sylvie Shoulder Bag'
-  }
-
+  @Input()
+  item;
 
 }
 
