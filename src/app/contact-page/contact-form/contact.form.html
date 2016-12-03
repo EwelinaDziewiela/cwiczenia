@@ -1,28 +1,27 @@
 <div class="formWrapper">
-  <p> </p>
-  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+  <form [formGroup]="contactForm" (submit)="onSubmit()">
     <p>
-      <label for="firstname"></label>
-      <input [(ngModel)]="model.firstname" #firstname="ngModel" type="text" id="firstname" name="firstname" placeholder="First name">
+      <input formControlName="firstname" id="firstname" type="text" />
+    </p>
+    <div [hidden]="contactForm.controls.firstname.valid">Required</div>
+
+    <p>
+      <input formControlName="lastname" id="lastname" type="text" />
     </p>
     <p>
-      <label for="lastname"></label>
-      <input [(ngModel)]="model.lastname" #lastname="ngModel"  type="text" id="lastname" name="lastname" placeholder="Last name">
+      <input formControlName="email" id="email" type="email" />
     </p>
-    <p>
-      <label for="email"></label>
-      <input [(ngModel)]="model.email" #email="ngModel" required type="email" id="email" name="email" placeholder="Your e-mail">
-      <span [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        email is required
-      </span>
-    </p>
-    <pre> {{ email.errors | json }} </pre>
-    <p>
-      <textarea placeholder="Your message"></textarea>
-    </p>
+    <!--<p>-->
+      <!--<label for="email"></label>-->
+      <!--<input [(ngModel)]="model.email" #email="ngModel" required type="email" id="email" name="email" placeholder="Your e-mail">-->
+      <!--<span [hidden]="email.valid || email.pristine" class="alert alert-danger">-->
+        <!--email is required-->
+      <!--</span>-->
+    <!--</p>-->
+    <!--<pre> {{ email.errors | json }} </pre>-->
+    <!--<p>-->
+      <!--<textarea placeholder="Your message"></textarea>-->
+    <!--</p>-->
+    <button type="submit"> Submit </button>
   </form>
-  <p> <button type="submit" (click)="onSubmit(contactForm)">Submit</button> </p>
-  <pre>
-    {{model | json }}
-  </pre>
 </div>

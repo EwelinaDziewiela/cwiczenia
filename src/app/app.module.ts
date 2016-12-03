@@ -17,14 +17,13 @@ import { ContactForm } from './contact-page/contact-form/contact.form';
     ProductList,
     TopMenu,
     ContactPage,
-    ContactForm,
-    ReactiveFormsModule
+    ContactForm
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    FormsModule,
     RouterModule.forRoot([
       { path: 'product', component: ProductComponent },
       { path: '', component: ProductList },
